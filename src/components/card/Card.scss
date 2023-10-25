@@ -25,6 +25,9 @@
     font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin-bottom: 10px;
   }
 
@@ -40,4 +43,30 @@
   &:hover {
     background-color: color-mix(in srgb, $primary 10%, $white 100%);
   }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                  NEW CARD                                  */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+
+.NewCard {
+  max-width: 200px;
+  width: 100%;
+  color: $primary;
+  border: 2px solid $primary;
+  border-radius: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex: 1;
 }
