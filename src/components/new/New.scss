@@ -1,0 +1,74 @@
+@import "../../styles/Theme.scss";
+
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                     NEW                                    */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+
+.NewParent {
+  height: 100svh;
+  width: 100svw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.13);
+}
+
+.New {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  margin-top: 10vh;
+  animation: pop 0.2s 1;
+
+  input,
+  textarea {
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid $primary;
+    font-family: inherit;
+    resize: vertical;
+    padding: 5px;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+
+  button {
+    background-color: $primary;
+    color: $white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 7px;
+    align-self: flex-start;
+    margin-left: 3px;
+
+    &:hover {
+      background-color: $primaryHover;
+    }
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
