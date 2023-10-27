@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { FaChevronLeft, FaChevronRight, FaRegCopy } from "react-icons/fa6";
 import "./Card.scss";
 
 interface ICardProps {
@@ -21,6 +21,12 @@ const Card = ({ Data, Index }: ICardProps) => {
         setTargetIndex(targetIndex + 1);
       }
     }
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(
+      Data[selected ? targetIndex : Index]?.Body.trim()
+    );
   };
 
   useEffect(() => {
@@ -51,6 +57,10 @@ const Card = ({ Data, Index }: ICardProps) => {
 
             <button onClick={() => Iterate("Next")}>
               <FaChevronRight />
+            </button>
+
+            <button onClick={handleCopy}>
+              <FaRegCopy />
             </button>
           </div>
         </div>
