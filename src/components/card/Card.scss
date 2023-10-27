@@ -11,14 +11,13 @@
 /* -------------------------------------------------------------------------- */
 
 .Card {
-  max-width: 200px;
   width: 100%;
   border: 2px solid $primary;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   padding: 10px;
-  transition: background-color 0.5s;
+  transition: transform 0.5s;
   flex: 1;
 
   .title {
@@ -42,6 +41,40 @@
 
   &:hover {
     background-color: color-mix(in srgb, $primary 10%, $white 100%);
+  }
+}
+
+.Card.Preview {
+  width: 100%;
+  height: fit-content;
+  max-width: 500px;
+  background-color: $white;
+  border: 2px solid $primary;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  flex: 1;
+  animation: preview 0.3s 1;
+
+  .title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 10px;
+  }
+
+  .body {
+    text-justify: distribute;
+    display: -webkit-box;
+    overflow: scroll;
+    white-space: pre;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    -webkit-box-orient: vertical;
   }
 }
 
@@ -69,4 +102,80 @@
   align-items: center;
   padding: 10px;
   flex: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                   PREVIEW                                  */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+
+.PreviewParent {
+  max-width: 200px;
+  transition: height 0.2s, width 0.2s, position 0.2s;
+  flex: auto;
+}
+
+.PreviewParent.Preview {
+  all: unset;
+  height: 100svh;
+  width: 100svw;
+  background-color: rgba(0, 0, 0, 0.13);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  padding-top: 10vh;
+}
+
+@keyframes preview {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                    TOOLS                                   */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                      -                                     */
+/* -------------------------------------------------------------------------- */
+
+.Tools {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 5px;
+
+  &.Preview {
+    display: flex;
+  }
+
+  button {
+    background-color: $primary;
+    color: $white;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 8px 3px;
+
+    &:hover {
+      background-color: $primaryHover;
+    }
+  }
 }
