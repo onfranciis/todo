@@ -1,5 +1,7 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import "./New.scss";
+import useStorage from "../../hooks/useStorage";
+import { IList } from "../../types";
 
 interface INewProps {
   DisplayNew: boolean;
@@ -7,8 +9,10 @@ interface INewProps {
 }
 
 const New = ({ setDisplayNew, DisplayNew }: INewProps) => {
+  const { updateList, getList } = useStorage();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const titleRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -19,6 +23,28 @@ const New = ({ setDisplayNew, DisplayNew }: INewProps) => {
       setBody(e.target.value);
     }
   };
+
+  const handleSubmit = () => {
+    const list = getList() as IList[];
+
+    if (title.trim() !== "" || body.trim() !== "") {
+      list.push({
+        Title: title,
+        Body: body,
+        Time: Date.now().toLocaleString("en-US"),
+      });
+
+      updateList(list);
+      setTitle("");
+      setBody("");
+    }
+
+    setDisplayNew(false);
+  };
+
+  useEffect(() => {
+    if (DisplayNew) titleRef.current?.focus();
+  }, [DisplayNew]);
 
   return (
     <div
@@ -32,6 +58,7 @@ const New = ({ setDisplayNew, DisplayNew }: INewProps) => {
           type="text"
           placeholder="Title"
           value={title}
+          ref={titleRef}
           onChange={handleChange}
         />
 
@@ -44,7 +71,7 @@ const New = ({ setDisplayNew, DisplayNew }: INewProps) => {
           onChange={handleChange}
         ></textarea>
 
-        <button>Add</button>
+        <button onClick={handleSubmit}>Add</button>
       </div>
     </div>
   );
