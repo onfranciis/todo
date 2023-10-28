@@ -94,6 +94,15 @@ const Card = ({ Data, Index, setList }: ICardProps) => {
         }}
       >
         <div>
+          <Tools
+            handleTools={handleTools}
+            Data={Data}
+            mode={mode}
+            selected={selected}
+            setMode={setMode}
+            targetIndex={targetIndex}
+          />
+
           <div className="group">
             {mode == "Preview" ? (
               <p className="title">
@@ -107,15 +116,6 @@ const Card = ({ Data, Index, setList }: ICardProps) => {
               />
             )}
           </div>
-
-          <Tools
-            handleTools={handleTools}
-            Data={Data}
-            mode={mode}
-            selected={selected}
-            setMode={setMode}
-            targetIndex={targetIndex}
-          />
         </div>
 
         <div className="group">

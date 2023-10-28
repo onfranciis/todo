@@ -28,26 +28,29 @@ const Tools = ({
   return (
     <div className={`Tools ${selected && "Preview"}`}>
       {mode == "Preview" ? (
-        <button onClick={() => setMode("Edit")}>
+        <button onClick={() => setMode("Edit")} title="Modify this list">
           <FaPen />
         </button>
       ) : (
-        <button onClick={() => handleTools("Update")}>
+        <button onClick={() => handleTools("Update")} title="Save this changes">
           <FaSave />
         </button>
       )}
 
-      <button onClick={() => handleTools("Prev")}>
+      <button onClick={() => handleTools("Prev")} title="Previous list">
         <FaChevronLeft />
       </button>
 
       <p>{`${targetIndex + 1}/${Data.length}`}</p>
 
-      <button onClick={() => handleTools("Next")}>
+      <button onClick={() => handleTools("Next")} title="Next list">
         <FaChevronRight />
       </button>
 
-      <button onClick={() => handleTools("Copy")}>
+      <button
+        onClick={() => handleTools("Copy")}
+        title="Copy this list to your clipboard"
+      >
         <FaRegCopy />
       </button>
     </div>
