@@ -25,6 +25,8 @@
 }
 
 .New {
+  width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,18 +36,26 @@
   margin-top: 10vh;
   animation: pop 0.2s 1;
 
-  input,
-  textarea {
+  input {
     width: 100%;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
     border-radius: 7px;
-    border: 1px solid $primary;
-    font-family: inherit;
-    resize: vertical;
+    border: 2px solid $primary;
     padding: 5px;
+    margin: 1px 0 11px;
   }
 
   textarea {
+    width: 100%;
     min-height: 100px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    border: 2px solid $primary;
+    border-radius: 7px;
+    padding: 8px;
   }
 
   button {
@@ -54,7 +64,7 @@
     font-size: 1rem;
     border: none;
     border-radius: 5px;
-    padding: 3px 7px;
+    padding: 3px 12px;
     align-self: flex-start;
     margin-left: 3px;
 

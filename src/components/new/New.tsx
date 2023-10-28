@@ -7,9 +7,10 @@ import { IList } from "../../types";
 interface INewProps {
   DisplayNew: boolean;
   setDisplayNew: (data: boolean) => void;
+  setList: (data: IList[]) => void;
 }
 
-const New = ({ setDisplayNew, DisplayNew }: INewProps) => {
+const New = ({ setDisplayNew, DisplayNew, setList }: INewProps) => {
   const { updateList, getList } = useStorage();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -37,6 +38,7 @@ const New = ({ setDisplayNew, DisplayNew }: INewProps) => {
       });
 
       updateList(list);
+      setList(getList());
       setTitle("");
       setBody("");
     }

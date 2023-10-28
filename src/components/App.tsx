@@ -38,7 +38,11 @@ function App() {
         ))}
       </div>
 
-      <New setDisplayNew={setDisplayNew} DisplayNew={displayNew} />
+      <New
+        setDisplayNew={setDisplayNew}
+        DisplayNew={displayNew}
+        setList={setList}
+      />
     </div>
   );
 }
