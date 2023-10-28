@@ -12,6 +12,39 @@
 
 .App {
   padding: 10px;
+
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    background: -webkit-linear-gradient(
+      $primary,
+      $primary,
+      rgba(0, 0, 0, 0.904)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 20px 0;
+  }
+
+  .notFound {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10rem;
+    color: color-mix(in srgb, $primary 60%, black 10%);
+    letter-spacing: 3px;
+
+    .sub {
+      font-size: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+  }
 }
 
 /* -------------------------------------------------------------------------- */

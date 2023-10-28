@@ -5,6 +5,8 @@ import Search from "./search/Search";
 import NewCard from "./card/NewCard";
 import New from "./new/New";
 import useStorage from "../hooks/useStorage";
+import { TbError404 } from "react-icons/tb";
+import { LuLayoutList } from "react-icons/lu";
 
 function App() {
   const { getList } = useStorage();
@@ -23,6 +25,8 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Todo</h1>
+
       <Search Input={searchInput} setInput={setSearchInput} />
 
       <div className="Cards">
@@ -37,6 +41,20 @@ function App() {
           />
         ))}
       </div>
+
+      {filterList().length == 0 && getList().length !== 0 && (
+        <div className="notFound">
+          <TbError404 />
+          <p className="sub">No list with this search term was found</p>
+        </div>
+      )}
+
+      {getList().length == 0 && (
+        <div className="notFound">
+          <LuLayoutList />
+          <p className="sub">You haven't created any list yet</p>
+        </div>
+      )}
 
       <New
         setDisplayNew={setDisplayNew}
