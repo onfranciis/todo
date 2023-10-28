@@ -29,8 +29,8 @@ const New = ({ setDisplayNew, DisplayNew }: INewProps) => {
 
     if (title.trim() !== "" || body.trim() !== "") {
       list.push({
-        Title: title,
-        Body: body,
+        Title: title.trim(),
+        Body: body.trim(),
         Time: Date.now().toLocaleString("en-US"),
       });
 
