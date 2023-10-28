@@ -5,16 +5,15 @@ import Search from "./search/Search";
 import NewCard from "./card/NewCard";
 import New from "./new/New";
 import useStorage from "../hooks/useStorage";
-import { IList } from "../types";
 
 function App() {
   const { getList } = useStorage();
   const [searchInput, setSearchInput] = useState("");
   const [displayNew, setDisplayNew] = useState(false);
-  const lists = getList() as IList[];
+  const [list, setList] = useState(getList());
 
   const filterList = () => {
-    return lists.filter((list) => {
+    return list.filter((list) => {
       return (
         list?.Body?.toLowerCase().includes(searchInput.toLowerCase().trim()) ||
         list?.Title?.toLowerCase().trim().includes(searchInput?.toLowerCase())
@@ -30,7 +29,12 @@ function App() {
         <NewCard setDisplay={setDisplayNew} />
 
         {filterList().map((list, index) => (
-          <Card Data={filterList()} key={list.Time} Index={index} />
+          <Card
+            Data={filterList()}
+            key={list.Time}
+            Index={index}
+            setList={setList}
+          />
         ))}
       </div>
 
