@@ -125,7 +125,7 @@
 /* -------------------------------------------------------------------------- */
 
 .NewCard {
-  max-width: 100px;
+  max-width: 200px;
   width: 100%;
   height: 100%;
   background-color: $primary;
@@ -138,7 +138,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 1;
+  aspect-ratio: 2/1;
   padding: 10px;
 }
 
