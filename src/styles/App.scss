@@ -45,6 +45,22 @@
       margin-bottom: 20px;
     }
   }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100vw;
+    height: 100svh;
+    background: url("/BG\ Group.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -58,10 +74,12 @@
 /* -------------------------------------------------------------------------- */
 
 .Cards {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 0));
   justify-content: center;
   align-items: stretch;
+  flex-wrap: wrap;
   gap: 10px;
   padding-bottom: 20px;
 }
