@@ -1,5 +1,6 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
 import "./New.scss";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { v4 as uuid } from "uuid";
 import useStorage from "../../hooks/useStorage";
 import { IList } from "../../types";
 
@@ -32,6 +33,7 @@ const New = ({ setDisplayNew, DisplayNew }: INewProps) => {
         Title: title.trim(),
         Body: body.trim(),
         Time: Date.now().toLocaleString("en-US"),
+        Id: uuid(),
       });
 
       updateList(list);
