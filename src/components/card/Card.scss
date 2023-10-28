@@ -33,12 +33,15 @@
   }
 
   .title {
+    width: fit-content;
     font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     border: 2px solid transparent;
   }
 
@@ -60,6 +63,7 @@
     overflow: hidden;
     border: 1px solid gray;
     border-radius: 5px;
+    text-align: center;
     margin: 1px 0 11px;
   }
 
@@ -70,7 +74,7 @@
     font-size: 1rem;
     border: 1px solid gray;
     border-radius: 5px;
-    padding: 11px 1px;
+    padding: 11px 5px;
   }
 }
 
@@ -88,19 +92,21 @@
   animation: preview 0.3s 1;
 
   .title {
-    font-size: 1.3rem;
-    font-weight: bold;
+    width: fit-content;
+    height: fit-content;
     text-align: center;
-    overflow: hidden;
+    overflow: unset;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: unset;
+    border: 2px solid transparent;
+    margin: 10px 0;
   }
 
   .body {
     text-justify: distribute;
     display: -webkit-box;
-    overflow: scroll;
+    overflow: auto;
     white-space: pre;
     scroll-behavior: smooth;
     padding: 10px 0;
