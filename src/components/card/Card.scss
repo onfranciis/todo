@@ -90,7 +90,7 @@
   flex-direction: column;
   padding: 10px;
   flex: 1;
-  animation: preview 0.3s 1;
+  animation: preview 0.2s 1;
 
   .title {
     width: fit-content;
@@ -155,7 +155,7 @@
 
 .PreviewParent {
   max-width: 200px;
-  transition: height 0.2s, width 0.2s, position 0.2s;
+  transition: position 0.2s;
   flex: auto;
 }
 
@@ -172,6 +172,7 @@
   left: 0;
   backdrop-filter: blur(5px);
   padding-top: 10vh;
+  z-index: 1;
 }
 
 @keyframes preview {
