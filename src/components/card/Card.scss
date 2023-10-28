@@ -20,6 +20,18 @@
   transition: transform 0.5s;
   flex: 1;
 
+  &:hover {
+    background-color: color-mix(in srgb, $primary 10%, $white 100%);
+  }
+
+  .group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .title {
     font-size: 1.3rem;
     font-weight: bold;
@@ -27,10 +39,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-bottom: 10px;
+    border: 2px solid transparent;
   }
 
   .body {
+    width: 100%;
+    border: 2px solid transparent;
     overflow: hidden;
     display: -webkit-box;
     text-overflow: ellipsis;
@@ -39,8 +53,24 @@
     -webkit-box-orient: vertical;
   }
 
-  &:hover {
-    background-color: color-mix(in srgb, $primary 10%, $white 100%);
+  input {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 1px 0 11px;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 50px;
+    resize: vertical;
+    font-size: 1rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 11px 1px;
   }
 }
 
