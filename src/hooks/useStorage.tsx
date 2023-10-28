@@ -1,5 +1,7 @@
+import { IList } from "../types";
+
 const useStorage = () => {
-  const getList = () => {
+  const getList = (): IList[] => {
     const items = window.localStorage.getItem("items") || "[]";
 
     if (items) {
