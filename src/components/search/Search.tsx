@@ -14,7 +14,7 @@ const Search = ({ setInput, Input }: ISearchProp) => {
   return (
     <div className="Search">
       <input
-        type="text"
+        type="search"
         placeholder="Search your notes..."
         value={Input}
         onChange={handleChange}
