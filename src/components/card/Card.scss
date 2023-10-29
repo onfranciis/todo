@@ -139,7 +139,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 2/1;
   padding: 10px;
 }
 
@@ -212,10 +211,21 @@
     padding: 5px;
     border: none;
     border-radius: 3px;
-    padding: 5px 8px 3px;
+    padding: 6px 8px 2px;
+    transition: background-color 0.3s;
 
-    &:hover {
+    &:has(:hover, :focus),
+    &:focus-visible {
       background-color: $primaryHover;
     }
+  }
+
+  .Delete:has(:hover, :focus),
+  .Delete:focus-visible {
+    background-color: red;
+  }
+
+  .Empty {
+    visibility: hidden;
   }
 }
