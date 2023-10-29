@@ -6,6 +6,7 @@ import {
   FaRegCopy,
 } from "react-icons/fa6";
 import { FaSave } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
 import "./Card.scss";
 
 interface ITools {
@@ -27,6 +28,14 @@ const Tools = ({
 }: ITools) => {
   return (
     <div className={`Tools ${selected && "Preview"}`}>
+      <button
+        onClick={() => handleTools("Copy")}
+        title="Copy this list to your clipboard"
+        className="Empty"
+      >
+        <FaRegCopy />
+      </button>
+
       {mode == "Preview" ? (
         <button onClick={() => setMode("Edit")} title="Modify this list">
           <FaPen />
@@ -52,6 +61,14 @@ const Tools = ({
         title="Copy this list to your clipboard"
       >
         <FaRegCopy />
+      </button>
+
+      <button
+        onClick={() => handleTools("Delete")}
+        title="Delete this list"
+        className="Delete"
+      >
+        <MdDeleteOutline />
       </button>
     </div>
   );

@@ -7,4 +7,10 @@ export interface IList {
 
 export type Mode = "Edit" | "Preview";
 
-export type handleToolsArg = Mode | "Prev" | "Next" | "Copy" | "Update";
+export type handleToolsArg =
+  | Mode
+  | "Prev"
+  | "Next"
+  | "Copy"
+  | "Update"
+  | "Delete";

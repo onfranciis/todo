@@ -43,6 +43,34 @@ const Card = ({ Data, Index, setList }: ICardProps) => {
     setMode("Preview");
   };
 
+  const deleteCard = () => {
+    const originalIndex = getList().findIndex(
+      (list) => list.Id == Data[targetIndex].Id
+    );
+
+    const modifiedData = getList()
+      .slice(0, originalIndex)
+      .concat(getList().slice(originalIndex + 1));
+
+    updateList(modifiedData);
+    setList(getList());
+    setMode("Preview");
+
+    if (targetIndex !== 0) {
+      const newTargetIndex = targetIndex - 1;
+
+      setTargetIndex(newTargetIndex);
+      setTitleInput(Data[newTargetIndex].Title);
+      setBodyInput(Data[newTargetIndex].Title);
+    } else if (targetIndex !== Data.length - 1) {
+      const newTargetIndex = targetIndex + 1;
+
+      setTargetIndex(newTargetIndex);
+      setTitleInput(Data[newTargetIndex].Title);
+      setBodyInput(Data[newTargetIndex].Body);
+    }
+  };
+
   const handleTools = (type: handleToolsArg) => {
     if (type == "Prev") {
       if (targetIndex !== 0) {
@@ -66,6 +94,8 @@ const Card = ({ Data, Index, setList }: ICardProps) => {
       );
     } else if (type == "Update") {
       updateCard();
+    } else if (type == "Delete") {
+      deleteCard();
     }
   };
 
