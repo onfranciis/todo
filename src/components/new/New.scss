@@ -11,8 +11,8 @@
 /* -------------------------------------------------------------------------- */
 
 .NewParent {
-  height: 100svh;
-  width: 100svw;
+  min-height: 100svh;
+  min-width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
